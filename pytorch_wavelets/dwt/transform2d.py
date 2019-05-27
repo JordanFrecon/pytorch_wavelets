@@ -66,6 +66,7 @@ class DWTForward(nn.Module):
 
     def get_filts(self):
         if self.get_high_from_low:
+            self.h0_row = self.h0_col.reshape((1, 1, 1, -1))
             self.h1_col = get_highpass_filter(self.h0_col)
             self.h1_row = self.h1_col.reshape((1, 1, 1, -1))
 
